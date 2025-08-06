@@ -1,17 +1,20 @@
-body {
+/* Базовые стили */
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
   color: #e0e0e0;
-  overflow-x: hidden;
   background: #1a1a1a;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
   box-sizing: border-box;
 }
 
+/* Основной контейнер */
 .container {
   display: flex;
   flex-direction: column;
@@ -20,24 +23,22 @@ body {
   gap: 1.5rem;
   width: 100%;
   max-width: 800px;
-  z-index: 1;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
+/* Карточка профиля */
 .profile-card {
   background: #2a2a2a;
   padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 128, 171, 0.1);
   text-align: center;
-  transition: transform 0.2s;
   width: 100%;
   box-sizing: border-box;
 }
 
-.profile-card:hover {
-  transform: translateY(-4px);
-}
-
+/* Аватар */
 .avatar-container {
   background: linear-gradient(45deg, #ff80ab, #d47ba8);
   width: 100px;
@@ -58,6 +59,7 @@ body {
   object-fit: cover;
 }
 
+/* Текст */
 h1 {
   margin: 0.5rem 0;
   font-size: 1.8rem;
@@ -84,44 +86,43 @@ p {
   line-height: 1.5;
 }
 
+/* Кнопки - теперь полностью адаптивные */
 .buttons {
   display: flex;
-  flex-direction: row;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  justify-content: center;
   width: 100%;
-  max-width: 100%;
   padding: 0 5px;
   box-sizing: border-box;
+  justify-content: space-between;
 }
 
 .btn {
   background: #2a2a2a;
-  width: 44px;
+  width: calc(33.33% - 10px);
   height: 44px;
+  min-width: 0;
   border-radius: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   color: #ff80ab;
-  transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 128, 171, 0.2);
   border: 1px solid #ff80ab;
-  flex-shrink: 0;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 12px rgba(255, 128, 171, 0.3);
+  flex-shrink: 1;
+  margin: 0 5px;
 }
 
 .btn .material-icons {
   font-size: 1.6rem;
 }
 
-@media (min-width: 481px) {
+/* Адаптация для планшетов */
+@media (min-width: 600px) {
+  .container {
+    padding: 20px;
+    gap: 2rem;
+  }
+  
   .profile-card {
     padding: 2rem;
   }
@@ -147,15 +148,9 @@ p {
   .ad-block {
     padding: 1rem;
     font-size: 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .buttons {
-    gap: 1rem;
   }
   
   .btn {
-    width: 50px;
     height: 50px;
   }
   
@@ -164,11 +159,8 @@ p {
   }
 }
 
-@media (min-width: 768px) {
-  .container {
-    gap: 2rem;
-  }
-  
+/* Адаптация для десктопов */
+@media (min-width: 900px) {
   .avatar-container {
     width: 150px;
     height: 150px;
@@ -188,11 +180,17 @@ p {
   }
   
   .btn {
-    width: 60px;
     height: 60px;
+    max-width: 60px;
+    margin: 0 auto;
   }
   
   .btn .material-icons {
     font-size: 2.2rem;
+  }
+  
+  .buttons {
+    justify-content: center;
+    gap: 1.5rem;
   }
 }
