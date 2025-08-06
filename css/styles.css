@@ -1,16 +1,11 @@
-* {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
-}
-
+/* Базовые стили */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #e0e0e0;
   background: #1a1a1a;
   display: flex;
@@ -19,6 +14,7 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Основной контейнер */
 .container {
   display: flex;
   flex-direction: column;
@@ -31,6 +27,7 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Карточка профиля */
 .profile-card {
   background: #2a2a2a;
   padding: 1.5rem;
@@ -39,9 +36,9 @@ html, body {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-  -webkit-backface-visibility: hidden;
 }
 
+/* Аватар */
 .avatar-container {
   background: linear-gradient(45deg, #ff80ab, #d47ba8);
   width: 100px;
@@ -53,7 +50,6 @@ html, body {
   justify-content: center;
   overflow: hidden;
   border: 2px solid #ff80ab;
-  -webkit-transform: translateZ(0);
 }
 
 .avatar {
@@ -61,15 +57,14 @@ html, body {
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  -webkit-user-drag: none;
 }
 
+/* Текст */
 h1 {
   margin: 0.5rem 0;
   font-size: 1.8rem;
   color: #ff80ab;
   line-height: 1.2;
-  font-weight: 500;
 }
 
 p {
@@ -91,12 +86,7 @@ p {
   line-height: 1.5;
 }
 
-.visitor-counter {
-  margin-top: 1rem;
-  color: #d47ba8;
-  font-size: 0.9rem;
-}
-
+/* Кнопки - теперь полностью адаптивные */
 .buttons {
   display: flex;
   width: 100%;
@@ -120,70 +110,85 @@ p {
   border: 1px solid #ff80ab;
   flex-shrink: 1;
   margin: 0 5px;
-  -webkit-appearance: none;
 }
 
 .btn .material-icons {
   font-size: 1.6rem;
 }
 
+/* Адаптация для планшетов */
 @media (min-width: 600px) {
   .container {
     padding: 20px;
     gap: 2rem;
   }
+  
   .profile-card {
     padding: 2rem;
   }
+  
   .avatar-container {
     width: 120px;
     height: 120px;
   }
+  
   .avatar {
     width: 110px;
     height: 110px;
   }
+  
   h1 {
     font-size: 2rem;
   }
+  
   p {
     font-size: 1.1rem;
   }
+  
   .ad-block {
     padding: 1rem;
     font-size: 1rem;
   }
+  
   .btn {
     height: 50px;
   }
+  
   .btn .material-icons {
     font-size: 1.8rem;
   }
 }
 
+/* Адаптация для десктопов */
 @media (min-width: 900px) {
   .avatar-container {
     width: 150px;
     height: 150px;
   }
+  
   .avatar {
     width: 140px;
     height: 140px;
   }
+  
   h1 {
     font-size: 2.5rem;
   }
+  
   p {
     font-size: 1.2rem;
   }
+  
   .btn {
     height: 60px;
     max-width: 60px;
     margin: 0 auto;
   }
+  
   .btn .material-icons {
     font-size: 2.2rem;
   }
+  
   .buttons {
     justify-content: center;
     gap: 1.5rem;
