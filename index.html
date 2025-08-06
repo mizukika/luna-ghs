@@ -2,13 +2,11 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Луна</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" href="assets/images/icon.png" type="image/png">
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
 </head>
 <body>
   <div class="container">
@@ -19,24 +17,21 @@
       <h1>Луна</h1>
       <p>Просто Луна.<br> Одна из тех, кто создала GHS</p>
       <div class="ad-block">
-        <p>GHS Team — сообщество для общения и совместного творчества</p>
-      </div>
-      <div class="visitor-counter">
-        <span class="counter-icon">👥</span>
-        <span id="visitorCount">0</span> человек уже зашли
+        <p>GHS Team<br> это сообщество для общения, где вы можете найти новых друзей и единомышленников. Мы объединяем людей, интересующихся программированием и видеоиграми, создавая комфортную атмосферу для обмена опытом, идей и просто приятного общения.</p>
       </div>
     </div>
     <div class="buttons">
-      <a href="https://t.me/liunari_moe" target="_blank" class="btn">
+      <a href="https://t.me/liunari_moe" target="_blank" class="btn" aria-label="Telegram">
         <span class="material-icons">telegram</span>
       </a>
-      <a href="https://discord.gg/S5PKUeaUJb" target="_blank" class="btn">
+      <a href="https://discord.gg/S5PKUeaUJb" target="_blank" class="btn" aria-label="Discord">
         <span class="material-icons">discord</span>
+      </a>
+      <a href="https://discord.com/oauth2/authorize?client_id=1392880530902749244" target="_blank" class="btn" aria-label="Бот">
+        <span class="material-icons">smart_toy</span>
       </a>
     </div>
   </div>
-
-  <script src="js/firebase-config.js"></script>
-  <script src="js/counter.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
