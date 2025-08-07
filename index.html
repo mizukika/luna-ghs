@@ -1,40 +1,60 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Луна</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="icon" href="assets/images/icon.png" type="image/png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#1a1a1a">
-</head>
-<body>
-  <div class="container">
-    <div class="profile-card">
-      <div class="avatar-container">
-        <img src="assets/images/avatar.png" alt="Avatar" class="avatar">
-      </div>
-      <h1>Луна</h1>
-      <p>Просто Луна.<br> Одна из тех, кто создала GHS</p>
-      <div class="ad-block">
-        <p>GHS Team<br> это сообщество для общения, где вы можете найти новых друзей и единомышленников. Мы объединяем людей, интересующихся программированием и видеоиграми, создавая комфортную атмосферу для обмена опытом, идей и просто приятного общения.</p>
-      </div>
-    </div>
-    <div class="buttons">
-      <a href="https://t.me/liunari_moe" target="_blank" class="btn" aria-label="Telegram">
-        <span class="material-icons">telegram</span>
-      </a>
-      <a href="https://discord.gg/S5PKUeaUJb" target="_blank" class="btn" aria-label="Discord">
-        <span class="material-icons">discord</span>
-      </a>
-      <a href="https://discord.com/oauth2/authorize?client_id=1392880530902749244" target="_blank" class="btn" aria-label="Бот">
-        <span class="material-icons">smart_toy</span>
-      </a>
-    </div>
-  </div>
-  <script src="js/script.js"></script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', function() {
+  const heartsContainer = document.getElementById('hearts-container');
+  const colors = ['#ff80ab', '#ff4081', '#ff1493', '#ff69b4', '#db7093'];
+  
+  // Функция создания сердечек с настройками
+  function createHeart(x, y, isClick = false) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤️';
+    
+    // Разные стили для клика и фоновых сердечек
+    if (isClick) {
+      heart.style.left = `${x + (Math.random() - 0.5) * 20}px`;
+      heart.style.top = `${y + (Math.random() - 0.5) * 20}px`;
+      heart.style.fontSize = `${14 + Math.random() * 10}px`;
+      heart.style.animationDuration = `${2 + Math.random() * 3}s`;
+      heart.style.opacity = '0.8';
+    } else {
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.top = `100vh`;
+      heart.style.fontSize = `${20 + Math.random() * 30}px`; // Больше размер
+      heart.style.animationDuration = `${10 + Math.random() * 15}s`; // Дольше анимация
+      heart.style.opacity = `${0.3 + Math.random() * 0.7}`; // Разная прозрачность
+    }
+    
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.animationName = `float${Math.floor(Math.random() * 3) + 1}`; // Разные анимации
+    
+    heartsContainer.appendChild(heart);
+    
+    // Удаляем сердечко после анимации
+    setTimeout(() => heart.remove(), parseFloat(heart.style.animationDuration) * 1000);
+  }
+
+  // Обработчики кликов для сердечек
+  document.addEventListener('click', function(e) {
+    for (let i = 0; i < 8; i++) { // Больше сердечек при клике
+      setTimeout(() => createHeart(e.clientX, e.clientY, true), i * 100);
+    }
+  });
+
+  // Фоновая генерация сердечек
+  function generateBackgroundHearts() {
+    const count = 3 + Math.floor(Math.random() * 3); // 3-5 сердечек за раз
+    
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => createHeart(), i * 300);
+    }
+    
+    setTimeout(generateBackgroundHearts, 1500); // Чаще генерация
+  }
+
+  // Старт генерации
+  generateBackgroundHearts();
+  
+  // Дополнительные сердечки при загрузке
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => createHeart(), i * 200);
+  }
+});
