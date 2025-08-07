@@ -2,13 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const heartsContainer = document.getElementById('hearts-container');
   const colors = ['#ff80ab', '#ff4081', '#ff1493', '#ff69b4', '#db7093'];
   
-  // Функция создания сердечек
   function createHeart(x, y, isClick = false) {
     const heart = document.createElement('div');
     heart.className = 'heart';
     heart.innerHTML = '❤️';
     
-    // Настройки для клика и фоновых сердечек
     if (isClick) {
       heart.style.left = `${x + (Math.random() - 0.5) * 20}px`;
       heart.style.top = `${y + (Math.random() - 0.5) * 20}px`;
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     heartsContainer.appendChild(heart);
     
-    // Удаление после анимации
     setTimeout(() => {
       if (heart.parentNode) {
         heart.parentNode.removeChild(heart);
@@ -36,14 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, parseFloat(heart.style.animationDuration) * 1000);
   }
 
-  // Клики по всему документу
   document.addEventListener('click', function(e) {
     for (let i = 0; i < 8; i++) {
       setTimeout(() => createHeart(e.clientX, e.clientY, true), i * 100);
     }
   });
 
-  // Фоновая генерация сердечек
   function generateBackgroundHearts() {
     const count = 3 + Math.floor(Math.random() * 3);
     
@@ -54,15 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(generateBackgroundHearts, 1000);
   }
 
-  // Начальная загрузка
   for (let i = 0; i < 20; i++) {
     setTimeout(() => createHeart(), i * 150);
   }
   
-  // Запуск фоновой генерации
   generateBackgroundHearts();
   
-  // Микро-взаимодействия для кнопок
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(btn => {
     btn.addEventListener('click', function(e) {
@@ -80,3 +72,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
