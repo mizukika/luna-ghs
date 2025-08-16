@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ru: {
       commands_title: "Команды бота",
       back_button: "◄",
-      add_auto_bot_button: "Добавить Auto Crash Bot",
-      add_crash_bot_button: "Добавить Crash Bot",
+      add_auto_bot_button: "Добавить Авто Краш Бота",
+      add_crash_bot_button: "Добавить Краш Бота",
       free_commands: "Бесплатные команды",
       premium_commands: "👑 Premium команды",
       copy_button: "Нажмите для копирования",
@@ -345,3 +345,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // Инициализация языка по умолчанию
   setLanguage('ru');
 });
+
