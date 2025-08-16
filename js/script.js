@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
   const translations = {
-    ru: {
-      title: "Луна",
-      description: "Просто Луна.<br> Одна из тех, кто создала GHS",
-      ad_block: "GHS Team<br> это сообщество для общения, где вы можете найти новых друзей и единомышленников. Мы объединяем людей, интересующихся программированием и видеоиграми, создавая комфортную атмосферу для обмена опытом, идей и просто приятного общения.",
-      language_ru: "🇷🇺 Русский",
-      language_en: "🇬🇧 English",
-      language_es: "🇪🇸 Español"
-    },
-    en: {
-      title: "Luna",
-      description: "Just Luna.<br> One of those who created GHS",
-      ad_block: "GHS Team<br> is a community for communication where you can find new friends and like-minded people. We bring together individuals interested in programming and video games, creating a comfortable atmosphere for sharing experiences, ideas, and just friendly chats.",
-      language_ru: "🇷🇺 Russian",
-      language_en: "🇬🇧 English",
-      language_es: "🇪🇸 Spanish"
-    },
-    es: {
-      title: "Luna",
-      description: "Solo Luna.<br> Una de las que creó GHS",
-      ad_block: "Equipo GHS<br> es una comunidad para la comunicación donde puedes encontrar nuevos amigos y personas con intereses similares. Reunimos a personas interesadas en la programación y los videojuegos, creando un ambiente cómodo para compartir experiencias, ideas y simplemente charlar amigablemente.",
-      language_ru: "🇷🇺 Ruso",
-      language_en: "🇬🇧 Inglés",
-      language_es: "🇪🇸 Español"
-    }
-  };
+  ru: {
+    title: "Луна",
+    description: "Просто Луна.<br> Одна из тех, кто создала GHS",
+    ad_block: "GHS Team<br> это сообщество для общения, где вы можете найти новых друзей и единомышленников. Мы объединяем людей, интересующихся программированием и видеоиграми, создавая комфортную атмосферу для обмена опытом, идей и просто приятного общения.",
+    telegram_label: "Telegram",
+    discord_label: "Discord",
+    bot_label: "Бот"
+  },
+  en: {
+    title: "Luna",
+    description: "Just Luna.<br> One of those who created GHS",
+    ad_block: "GHS Team<br> is a community for communication where you can find new friends and like-minded people. We bring together individuals interested in programming and video games, creating a comfortable atmosphere for sharing experiences, ideas, and just friendly chats.",
+    telegram_label: "Telegram",
+    discord_label: "Discord",
+    bot_label: "Bot"
+  },
+  es: {
+    title: "Luna",
+    description: "Solo Luna.<br> Una de las que creó GHS",
+    ad_block: "Equipo GHS<br> es una comunidad para la comunicación donde puedes encontrar nuevos amigos y personas con intereses similares. Reunimos a personas interesadas en la programación y los videojuegos, creando un ambiente cómodo para compartir experiencias, ideas y simplemente charlar amigablemente.",
+    telegram_label: "Telegram",
+    discord_label: "Discord",
+    bot_label: "Bot"
+  }
+};
 
   function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -41,24 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-    
-    // Обновляем текущий язык с флагом
-    const languageCurrent = document.querySelector('.language-current');
-    if (languageCurrent) {
-      languageCurrent.innerHTML = translations[lang][`language_${lang}`];
-    }
-    
-    // Обновляем варианты в меню
-    const languageOptions = document.querySelectorAll('.language-option');
-    languageOptions.forEach(option => {
-      const optionLang = option.getAttribute('data-lang');
-      option.innerHTML = translations[lang][`language_${optionLang}`];
-    });
-    
     document.documentElement.lang = lang;
+    document.querySelector('.language-current').textContent = {
+      ru: '🇷🇺',
+      en: '🇬🇧',
+      es: '🇪🇸'
+    }[lang];
   }
 
-  // Анимация капель
   const heartsContainer = document.getElementById('hearts-container');
   const colors = ['#4FC3F7', '#0288D1', '#81D4FA', '#B3E5FC'];
   
@@ -100,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function generateBackgroundHearts() {
-    const count = 5 + Math.floor(Math.random() * 3);
+    const count = 5 + Math.floor(Math.random() * 3); // 5–7 капель
     for (let i = 0; i < count; i++) {
       setTimeout(() => createHeart(), i * 200);
     }
@@ -113,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   generateBackgroundHearts();
   
-  // Эффект волны для кнопок
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(btn => {
     btn.addEventListener('click', function(e) {
@@ -129,31 +118,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Переключатель языка
+  // Language switcher
   const languageSwitcher = document.querySelector('.language-switcher');
   const languageCurrent = document.querySelector('.language-current');
   const languageMenu = document.querySelector('.language-menu');
   const languageOptions = document.querySelectorAll('.language-option');
 
-  if (languageCurrent) {
-    languageCurrent.addEventListener('click', () => {
-      languageMenu.classList.toggle('show');
-    });
-  }
+  languageCurrent.addEventListener('click', () => {
+    languageMenu.classList.toggle('show');
+  });
 
-  if (languageOptions) {
-    languageOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        const lang = option.getAttribute('data-lang');
-        setLanguage(lang);
-        if (languageMenu) languageMenu.classList.remove('show');
-      });
+  languageOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const lang = option.getAttribute('data-lang');
+      setLanguage(lang);
+      languageMenu.classList.remove('show');
     });
-  }
+  });
 
   // Закрытие меню при клике вне его
   document.addEventListener('click', (e) => {
-    if (languageSwitcher && !languageSwitcher.contains(e.target)) {
+    if (!languageSwitcher.contains(e.target)) {
       languageMenu.classList.remove('show');
     }
   });
