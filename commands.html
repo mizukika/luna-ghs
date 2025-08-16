@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title data-i18n="commands_title">Команды бота</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600&display=swap">
+  <link rel="icon" href="assets/images/icon.png" type="image/png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1E3A5F">
+</head>
+<body>
+  <div class="language-switcher">
+    <span class="language-current">🇷🇺 Русский</span>
+    <div class="language-menu">
+      <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+      <div class="language-option" data-lang="en">🇬🇧 English</div>
+      <div class="language-option" data-lang="es">🇪🇸 Español</div>
+    </div>
+  </div>
+  <div class="commands-container">
+    <a href="index.html" class="back-btn" data-i18n="back_button">Назад</a>
+    <div class="bot-buttons">
+      <a href="https://discord.com/oauth2/authorize?client_id=1399079956843335852&permissions=8&integration_type=0&scope=bot" 
+         target="_blank" class="add-bot-btn">
+        <span class="material-icons">auto_awesome</span>
+        <span data-i18n="auto_bot_button">Авто-Краш Бот</span>
+      </a>
+      <a href="https://discord.com/api/oauth2/authorize?client_id=1374582651075432478&permissions=1829587348619263&scope=bot" 
+         target="_blank" class="add-bot-btn">
+        <span class="material-icons">smart_toy</span>
+        <span data-i18n="crash_bot_button">Краш Бот</span>
+      </a>
+    </div>
+    <h1 class="commands-title" data-i18n="commands_title">Команды бота</h1>
+    <div class="commands-grid">
+      <div class="command-column">
+        <h2 data-i18n="free_commands">Бесплатные команды</h2>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.nuke.name">!nuke</div>
+          <div class="command-desc" data-i18n="commands.nuke.desc">Уничтожить сервер</div>
+          <button class="command-copy" data-command="!nuke" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.crssh.name">!crssh [id/ссылка]</div>
+          <div class="command-desc" data-i18n="commands.crssh.desc">Снести сервер по ID/ссылке</div>
+          <button class="command-copy" data-command="!crssh" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.auto_nuke.name">!auto_nuke [on/off]</div>
+          <div class="command-desc" data-i18n="commands.auto_nuke.desc">Авто-снос</div>
+          <button class="command-copy" data-command="!auto_nuke" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.stats.name">!stats</div>
+          <div class="command-desc" data-i18n="commands.stats.desc">Статистика</div>
+          <button class="command-copy" data-command="!stats" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.createchannels.name">!createchannels</div>
+          <div class="command-desc" data-i18n="commands.createchannels.desc">Создать каналы</div>
+          <button class="command-copy" data-command="!createchannels" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.create_threads.name">!create_threads</div>
+          <div class="command-desc" data-i18n="commands.create_threads.desc">Создать ветки</div>
+          <button class="command-copy" data-command="!create_threads" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.spamrole.name">!spamrole</div>
+          <div class="command-desc" data-i18n="commands.spamrole.desc">Создать роли</div>
+          <button class="command-copy" data-command="!spamrole" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.rename_server.name">!rename_server</div>
+          <div class="command-desc" data-i18n="commands.rename_server.desc">Переименовать сервер</div>
+          <button class="command-copy" data-command="!rename_server" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.rename_roles.name">!rename_roles</div>
+          <div class="command-desc" data-i18n="commands.rename_roles.desc">Переименовать роли</div>
+          <button class="command-copy" data-command="!rename_roles" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.rename_channels.name">!rename_channels</div>
+          <div class="command-desc" data-i18n="commands.rename_channels.desc">Переименовать каналы</div>
+          <button class="command-copy" data-command="!rename_channels" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.icon.name">!icon</div>
+          <div class="command-desc" data-i18n="commands.icon.desc">Изменить иконку</div>
+          <button class="command-copy" data-command="!icon" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.banall.name">!banall</div>
+          <div class="command-desc" data-i18n="commands.banall.desc">Забанить всех</div>
+          <button class="command-copy" data-command="!banall" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.ban.name">!ban <id/username></div>
+          <div class="command-desc" data-i18n="commands.ban.desc">Забанить</div>
+          <button class="command-copy" data-command="!ban" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.kickall.name">!kickall</div>
+          <div class="command-desc" data-i18n="commands.kickall.desc">Кикнуть всех</div>
+          <button class="command-copy" data-command="!kickall" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.kick.name">!kick <id/username></div>
+          <div class="command-desc" data-i18n="commands.kick.desc">Кикнуть</div>
+          <button class="command-copy" data-command="!kick" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.unbanall.name">!unbanall</div>
+          <div class="command-desc" data-i18n="commands.unbanall.desc">Разбанить всех</div>
+          <button class="command-copy" data-command="!unbanall" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.massmute.name">!massmute</div>
+          <div class="command-desc" data-i18n="commands.massmute.desc">Замутить всех</div>
+          <button class="command-copy" data-command="!massmute" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.massunmute.name">!massunmute</div>
+          <div class="command-desc" data-i18n="commands.massunmute.desc">Размьютить всех</div>
+          <button class="command-copy" data-command="!massunmute" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.mute.name">!mute <id/username></div>
+          <div class="command-desc" data-i18n="commands.mute.desc">Замутить</div>
+          <button class="command-copy" data-command="!mute" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.admin.name">!admin</div>
+          <div class="command-desc" data-i18n="commands.admin.desc">Админка</div>
+          <button class="command-copy" data-command="!admin" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.everyone_admin.name">!everyone_admin</div>
+          <div class="command-desc" data-i18n="commands.everyone_admin.desc">Всем админку</div>
+          <button class="command-copy" data-command="!everyone_admin" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.spam.name">!spam</div>
+          <div class="command-desc" data-i18n="commands.spam.desc">Спам</div>
+          <button class="command-copy" data-command="!spam" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.nsfw_all.name">!nsfw_all</div>
+          <div class="command-desc" data-i18n="commands.nsfw_all.desc">NSFW все</div>
+          <button class="command-copy" data-command="!nsfw_all" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.unnsfw_all.name">!unnsfw_all</div>
+          <div class="command-desc" data-i18n="commands.unnsfw_all.desc">UNNSFW все</div>
+          <button class="command-copy" data-command="!unnsfw_all" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.emoji.name">!emoji</div>
+          <div class="command-desc" data-i18n="commands.emoji.desc">Эмодзи</div>
+          <button class="command-copy" data-command="!emoji" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.stickers.name">!stickers</div>
+          <div class="command-desc" data-i18n="commands.stickers.desc">Стикеры</div>
+          <button class="command-copy" data-command="!stickers" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.spam_webhooks.name">!spam_webhooks</div>
+          <div class="command-desc" data-i18n="commands.spam_webhooks.desc">Спам вебхуки</div>
+          <button class="command-copy" data-command="!spam_webhooks" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.webhooks.name">!webhooks</div>
+          <div class="command-desc" data-i18n="commands.webhooks.desc">Вебхуки</div>
+          <button class="command-copy" data-command="!webhooks" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.delete_webhook.name">!delete_webhook [ссылка]</div>
+          <div class="command-desc" data-i18n="commands.delete_webhook.desc">Удалить вебхук</div>
+          <button class="command-copy" data-command="!delete_webhook" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.disable_community.name">!disable_community</div>
+          <div class="command-desc" data-i18n="commands.disable_community.desc">Отключить сообщество</div>
+          <button class="command-copy" data-command="!disable_community" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.disable_automod.name">!disable_automod</div>
+          <div class="command-desc" data-i18n="commands.disable_automod.desc">Отключить автомод</div>
+          <button class="command-copy" data-command="!disable_automod" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.ping.name">!ping</div>
+          <div class="command-desc" data-i18n="commands.ping.desc">Пинг</div>
+          <button class="command-copy" data-command="!ping" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.invite.name">!invite</div>
+          <div class="command-desc" data-i18n="commands.invite.desc">Пригласить</div>
+          <button class="command-copy" data-command="!invite" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.info.name">!info</div>
+          <div class="command-desc" data-i18n="commands.info.desc">Информация о сервере и шаблон</div>
+          <button class="command-copy" data-command="!info" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.update.name">!update</div>
+          <div class="command-desc" data-i18n="commands.update.desc">Обновления бота</div>
+          <button class="command-copy" data-command="!update" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+      </div>
+      <div class="command-column">
+        <h2 data-i18n="premium_commands">👑 Premium команды</h2>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.config.name">!config</div>
+          <div class="command-desc" data-i18n="commands.config.desc">Конфигурация бота</div>
+          <button class="command-copy" data-command="!config" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.config_info.name">!config_info</div>
+          <div class="command-desc" data-i18n="commands.config_info.desc">Информация о конфигурации</div>
+          <button class="command-copy" data-command="!config_info" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_createchannels.name">!custom_createchannels [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_createchannels.desc">Создать каналы с вашим названием</div>
+          <button class="command-copy" data-command="!custom_createchannels" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_create_threads.name">!custom_create_threads [thread_name] [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_create_threads.desc">Создать ветки с вашим названием</div>
+          <button class="command-copy" data-command="!custom_create_threads" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.delchannels.name">!delchannels</div>
+          <div class="command-desc" data-i18n="commands.delchannels.desc">Удалить все каналы</div>
+          <button class="command-copy" data-command="!delchannels" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_spam.name">!custom_spam [count] [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_spam.desc">Спам вашим текстом</div>
+          <button class="command-copy" data-command="!custom_spam" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_rename_server.name">!custom_rename_server [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_rename_server.desc">Переименовать сервер вашим названием</div>
+          <button class="command-copy" data-command="!custom_rename_server" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_rename_channels.name">!custom_rename_channels [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_rename_channels.desc">Переименовать каналы вашим названием</div>
+          <button class="command-copy" data-command="!custom_rename_channels" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_rename_roles.name">!custom_rename_roles [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_rename_roles.desc">Переименовать роли вашим названием</div>
+          <button class="command-copy" data-command="!custom_rename_roles" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_spam_webhooks.name">!custom_spam_webhooks [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_spam_webhooks.desc">Спам в вебхуки вашим текстом</div>
+          <button class="command-copy" data-command="!custom_spam_webhooks" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_webhooks.name">!custom_webhooks [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_webhooks.desc">Создать вебхуки и спамить вашим текстом</div>
+          <button class="command-copy" data-command="!custom_webhooks" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_icon.name">!custom_icon [url,png,jpg,jpeg,gif]</div>
+          <div class="command-desc" data-i18n="commands.custom_icon.desc">Установить вашу иконку сервера</div>
+          <button class="command-copy" data-command="!custom_icon" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.custom_role.name">!custom_role [text]</div>
+          <div class="command-desc" data-i18n="commands.custom_role.desc">Создать роли с вашим названием</div>
+          <button class="command-copy" data-command="!custom_role" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.ghostping.name">!ghostping</div>
+          <div class="command-desc" data-i18n="commands.ghostping.desc">Призрачный пинг</div>
+          <button class="command-copy" data-command="!ghostping" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.purge.name">!purge</div>
+          <div class="command-desc" data-i18n="commands.purge.desc">Очистить сообщения в каналах</div>
+          <button class="command-copy" data-command="!purge" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.server_lockdown.name">!server_lockdown</div>
+          <div class="command-desc" data-i18n="commands.server_lockdown.desc">Скрыть все каналы от участников</div>
+          <button class="command-copy" data-command="!server_lockdown" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.show_channels.name">!show_channels</div>
+          <div class="command-desc" data-i18n="commands.show_channels.desc">Показать все каналы участникам</div>
+          <button class="command-copy" data-command="!show_channels" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.close_server.name">!close_server</div>
+          <div class="command-desc" data-i18n="commands.close_server.desc">Закрыть все каналы для сообщений</div>
+          <button class="command-copy" data-command="!close_server" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.unlock_server.name">!unlock_server</div>
+          <div class="command-desc" data-i18n="commands.unlock_server.desc">Открыть все каналы для сообщений</div>
+          <button class="command-copy" data-command="!unlock_server" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.massnick.name">!massnick [nick]</div>
+          <div class="command-desc" data-i18n="commands.massnick.desc">Изменить никнеймы всем участникам</div>
+          <button class="command-copy" data-command="!massnick" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.invs_delete.name">!invs_delete</div>
+          <div class="command-desc" data-i18n="commands.invs_delete.desc">Удалить все приглашения на сервер</div>
+          <button class="command-copy" data-command="!invs_delete" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+        <div class="command-card">
+          <div class="command-name" data-i18n="commands.gen.name">!gen [count]</div>
+          <div class="command-desc" data-i18n="commands.gen.desc">Генератор Nitro</div>
+          <button class="command-copy" data-command="!gen" data-i18n="copy_button">Нажмите для копирования</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="hearts-container"></div>
+  <script src="js/commands.js"></script>
+</body>
+</html>
