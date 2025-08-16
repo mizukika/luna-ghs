@@ -43,17 +43,17 @@ html, body {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(79, 195, 247, 0.2) 0%, rgba(79, 195, 247, 0) 70%);
   transform: scale(0);
-  animation: rippleWave 4s ease-out infinite;
+  animation: rippleWave 5s ease-out infinite;
   pointer-events: none;
 }
 
 @keyframes rippleWave {
   0% {
     transform: scale(0);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   100% {
-    transform: scale(8);
+    transform: scale(6);
     opacity: 0;
   }
 }
@@ -76,25 +76,12 @@ html, body {
   background: var(--card-color);
   padding: 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 
-              0 0 20px rgba(79, 195, 247, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-}
-
-.profile-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(79, 195, 247, 0.1) 0%, rgba(79, 195, 247, 0) 70%);
-  transform: rotate(30deg);
-  z-index: -1;
 }
 
 .profile-card:hover {
@@ -148,7 +135,6 @@ h1 {
   color: var(--primary-color);
   line-height: 1.2;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
 }
 
 p {
@@ -164,22 +150,17 @@ p {
   padding: 0.8rem;
   background: rgba(245, 250, 255, 0.8);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 
-              inset 0 0 8px rgba(79, 195, 247, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   color: var(--secondary-color);
   font-size: 0.9rem;
   text-align: center;
   line-height: 1.5;
-  transition: all 0.6s ease;
-  border: 1px solid rgba(79, 195, 247, 0.2);
+  transition: all 0.3s ease;
 }
 
 .ad-block:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 
-              inset 0 0 12px rgba(79, 195, 247, 0.2);
-  background-color: rgba(245, 250, 255, 0.9);
-  transition-duration: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .buttons {
@@ -200,65 +181,17 @@ p {
   justify-content: center;
   text-decoration: none;
   color: var(--primary-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 
-              0 0 12px rgba(79, 195, 247, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--primary-color);
   transition: all var(--animation-speed) ease;
   position: relative;
   overflow: hidden;
-  z-index: 1;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.2), transparent);
-  transition: left 1s ease-in-out;
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%, -50%);
-  transform-origin: 50% 50%;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 
-              0 0 20px rgba(79, 195, 247, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   color: var(--accent-color);
-}
-
-.btn:hover::before {
-  left: 100%;
-  transition-duration: 0.6s;
-}
-
-.btn:active::after {
-  animation: ripple var(--animation-speed) ease-out;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(20, 20);
-    opacity: 0;
-  }
 }
 
 .btn .material-icons {
@@ -323,7 +256,6 @@ p {
   user-select: none;
   z-index: 1000;
   will-change: transform, opacity;
-  text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
   animation-timing-function: linear;
 }
 
