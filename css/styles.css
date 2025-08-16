@@ -258,7 +258,7 @@ p {
   gap: 1rem;
   justify-content: center;
   margin-bottom: 1rem;
-  margin-top: 80px; /* Добавляем отступ сверху для кнопок языка и "Назад" */
+  margin-top: 80px;
   flex-wrap: wrap;
 }
 
@@ -333,19 +333,23 @@ p {
 }
 
 .back-btn {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   background: linear-gradient(135deg, rgba(42, 75, 124, 0.5), rgba(79, 195, 247, 0.3));
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.8rem 1.5rem;
-  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--primary-color);
   font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
 }
 
 .back-btn:hover {
@@ -447,7 +451,7 @@ p {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
-  padding-top: 80px; /* Добавляем отступ сверху */
+  padding-top: 80px;
   position: relative;
   z-index: 2;
 }
@@ -543,6 +547,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 40px;
 }
 
 .language-current:hover {
@@ -600,15 +605,15 @@ p {
 /* МОБИЛЬНЫЕ УСТРОЙСТВА */
 @media (max-width: 480px) {
   body {
-    padding-top: 80px; /* Добавляем отступ сверху для всего body */
+    padding-top: 80px;
   }
   
   .commands-container {
-    padding-top: 20px; /* Уменьшаем отступ для контейнера команд */
+    padding-top: 20px;
   }
   
   .bot-buttons {
-    margin-top: 20px; /* Уменьшаем отступ сверху */
+    margin-top: 20px;
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
@@ -625,8 +630,9 @@ p {
   .back-btn {
     top: 15px;
     left: 15px;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.8rem;
     font-size: 0.9rem;
+    height: 36px;
   }
   
   .language-switcher {
@@ -635,8 +641,9 @@ p {
   }
   
   .language-current {
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 0.8rem;
     font-size: 0.9rem;
+    height: 36px;
   }
   
   .commands-title {
