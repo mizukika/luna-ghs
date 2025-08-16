@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   const heartsContainer = document.getElementById('hearts-container');
-  const colors = ['#ff80ab', '#ff4081', '#ff1493', '#ff69b4', '#db7093'];
+  const rippleContainer = document.getElementById('ripple-container');
+  const colors = ['#4FC3F7', '#0288D1', '#81D4FA', '#B3E5FC', '#0288D1'];
   
   function createHeart(x, y, isClick = false) {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.innerHTML = '❤️';
+    heart.innerHTML = '💧';
     
     if (isClick) {
       heart.style.left = `${x + (Math.random() - 0.5) * 20}px`;
@@ -33,6 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }, parseFloat(heart.style.animationDuration) * 1000);
   }
 
+  function createRipple() {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = `${Math.random() * 100}vw`;
+    ripple.style.top = `${Math.random() * 100}vh`;
+    ripple.style.width = ripple.style.height = `${100 + Math.random() * 200}px`;
+    rippleContainer.appendChild(ripple);
+    
+    setTimeout(() => {
+      if (ripple.parentNode) {
+        ripple.parentNode.removeChild(ripple);
+      }
+    }, 4000);
+  }
+
   document.addEventListener('click', function(e) {
     for (let i = 0; i < 8; i++) {
       setTimeout(() => createHeart(e.clientX, e.clientY, true), i * 100);
@@ -49,11 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(generateBackgroundHearts, 1000);
   }
 
+  function generateBackgroundRipples() {
+    const count = 2 + Math.floor(Math.random() * 2);
+    
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => createRipple(), i * 500);
+    }
+    
+    setTimeout(generateBackgroundRipples, 2000);
+  }
+
   for (let i = 0; i < 20; i++) {
     setTimeout(() => createHeart(), i * 150);
   }
   
   generateBackgroundHearts();
+  generateBackgroundRipples();
   
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(btn => {
@@ -72,4 +99,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
