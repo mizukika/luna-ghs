@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const heartsContainer = document.getElementById('hearts-container');
-  const colors = ['#4FC3F7', '#0288D1', '#81D4FA', '#B3E5FC'];
+  const colors = ['#ff4d4d', '#b30000', '#ff8080', '#ffb3b3'];
   
   function createHeart(x, y, isClick = false) {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.innerHTML = '💧';
+    heart.innerHTML = '🩸';
     
     if (isClick) {
       heart.style.left = `${x + (Math.random() - 0.5) * 20}px`;
@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Language switcher
   const languageSwitcher = document.querySelector('.language-switcher');
   const languageCurrent = document.querySelector('.language-current');
   const languageMenu = document.querySelector('.language-menu');
@@ -136,13 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Закрытие меню при клике вне его
   document.addEventListener('click', (e) => {
     if (!languageSwitcher.contains(e.target)) {
       languageMenu.classList.remove('show');
     }
   });
 
-  // Инициализация языка по умолчанию
   setLanguage('ru');
 });
