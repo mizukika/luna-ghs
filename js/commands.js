@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function createHeart(x, y, isClick = false) {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.innerHTML = '🩸';
+    heart.innerHTML = '🤍';
 
     if (isClick) {
       heart.style.left = `${x + (Math.random() - 0.5) * 20}px`;
@@ -342,3 +342,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setLanguage('ru');
 });
+
