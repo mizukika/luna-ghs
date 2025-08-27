@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       bot_label: "Бот"
     },
     en: {
-      title: "Luna",
+      title: "Mizu",
       description: "Just Mizu.<br> One of those who created GHS",
       ad_block: "GHS Team<br> is a community for communication where you can find new friends and like-minded people. We bring together individuals interested in programming and video games, creating a comfortable atmosphere for sharing experiences, ideas, and just friendly chats.",
       telegram_label: "Telegram",
@@ -172,4 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
   // Устанавливаем язык по умолчанию при загрузке страницы
   setLanguage('ru');
 });
+
 
