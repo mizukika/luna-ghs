@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #ff4d4d;
-  --secondary-color: #b30000;
-  --bg-color: #1a0000;
+  --primary-color: #fffafa;
+  --secondary-color: #e0dada;
+  --bg-color: #2a2525;
   --card-color: rgba(72, 6, 7, 0.5);
-  --text-color: #ffcccc;
+  --text-color: #fffafa;
   --animation-speed: 0.4s;
 }
 
