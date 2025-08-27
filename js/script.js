@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const heartsContainer = document.getElementById('hearts-container');
-  const colors = ['#ff4d4d', '#b30000', '#ff8080', '#ffb3b3'];
+   const colors = ['#fffafa', '#e0dada', '#ffcccc', '#ffe6e6'];
   
   function createHeart(x, y, isClick = false) {
     const heart = document.createElement('div');
@@ -143,4 +143,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setLanguage('ru');
 });
-
