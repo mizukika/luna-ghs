@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   const translations = {
     ru: {
-      title: "Луна",
-      description: "Просто Луна.<br> Одна из тех, кто создала GHS",
+      title: "Мизу",
+      description: "Просто Мизу.<br> Одна из тех, кто создала GHS",
       ad_block: "GHS Team<br> это сообщество для общения, где вы можете найти новых друзей и единомышленников. Мы объединяем людей, интересующихся программированием и видеоиграми, создавая комфортную атмосферу для обмена опытом, идей и просто приятного общения.",
       telegram_label: "Telegram",
       discord_label: "Discord",
@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     en: {
       title: "Luna",
-      description: "Just Luna.<br> One of those who created GHS",
+      description: "Just Mizu.<br> One of those who created GHS",
       ad_block: "GHS Team<br> is a community for communication where you can find new friends and like-minded people. We bring together individuals interested in programming and video games, creating a comfortable atmosphere for sharing experiences, ideas, and just friendly chats.",
       telegram_label: "Telegram",
       discord_label: "Discord",
       bot_label: "Bot"
     },
     es: {
-      title: "Luna",
-      description: "Solo Luna.<br> Una de las que creó GHS",
+      title: "Mizu",
+      description: "Solo Mizu.<br> Una de las que creó GHS",
       ad_block: "Equipo GHS<br> es una comunidad para la comunicación donde puedes encontrar nuevos amigos y personas con intereses similares. Reunimos a personas interesadas en la programación y los videojuegos, creando un ambiente cómodo para compartir experiencias, ideas y simplemente charlar amigablemente.",
       telegram_label: "Telegram",
       discord_label: "Discord",
@@ -172,3 +172,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // Устанавливаем язык по умолчанию при загрузке страницы
   setLanguage('ru');
 });
+
