@@ -214,13 +214,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const key = element.getAttribute('data-i18n');
       let text = key.split('.').reduce((obj, k) => obj && obj[k], translations[lang]);
       if (text) {
-        if (element.tagName === 'TITLE' || element.tagName === 'P' || element.tagName === 'H1') {
-          element.innerHTML = text;
+
+        if (key.endsWith('.name') || key.endsWith('.desc')) {
+            element.innerHTML = text; 
         } else {
-          element.textContent = text;
-        }
-        if (element.hasAttribute('aria-label')) {
-          element.setAttribute('aria-label', text);
+            element.textContent = text;
         }
       }
     });
@@ -230,61 +228,80 @@ document.addEventListener('DOMContentLoaded', function() {
       en: '🇬🇧',
       es: '🇪🇸'
     }[lang];
+
+
+    const currentCopyText = translations[lang].copy_button;
+    document.querySelectorAll('.command-copy').forEach(button => {
+        if (!button.disabled) {
+            button.textContent = currentCopyText;
+        }
+    });
   }
 
-  const heartsContainer = document.getElementById('hearts-container');
-  const colors = ['#ff4d4d', '#b30000', '#ff8080', '#ffb3b3'];
 
-  function createHeart(x, y, isClick = false) {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.innerHTML = '🤍';
+  const canvas = document.getElementById('hearts-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let hearts = [];
+    const colors = ['#5c3c3c', '#ffb6c1', '#d87093', '#ffc0cb'];
 
-    if (isClick) {
-      heart.style.left = `${x + (Math.random() - 0.5) * 20}px`;
-      heart.style.top = `${y + (Math.random() - 0.5) * 20}px`;
-      heart.style.fontSize = `${20 + Math.random() * 20}px`;
-      heart.style.animationDuration = `${2 + Math.random() * 3}s`;
-      heart.style.opacity = '0.9';
-    } else {
-      heart.style.left = `${Math.random() * 100}vw`;
-      heart.style.top = `100vh`;
-      heart.style.fontSize = `${20 + Math.random() * 30}px`;
-      heart.style.animationDuration = `${10 + Math.random() * 15}s`;
-      heart.style.opacity = `${0.3 + Math.random() * 0.7}`;
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
 
-    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-    heart.style.animationName = `float${Math.floor(Math.random() * 3) + 1}`;
+    function createHeart(x, y, isClick = false) {
+      const heart = {
+        x: x || Math.random() * canvas.width,
+        y: y || canvas.height + Math.random() * 50,
+        size: isClick ? (20 + Math.random() * 20) : (20 + Math.random() * 30),
+        speedY: isClick ? (1 + Math.random() * 2) : (0.5 + Math.random() * 1.5),
+        speedX: isClick ? ((Math.random() - 0.5) * 2) : 0,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        opacity: isClick ? 0.9 : (0.3 + Math.random() * 0.7),
+        rotation: (Math.random() - 0.5) * Math.PI / 4,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
+        character: '🤍',
+      };
+      hearts.push(heart);
+    }
 
-    heartsContainer.appendChild(heart);
-
-    setTimeout(() => {
-      if (heart.parentNode) {
-        heart.parentNode.removeChild(heart);
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = hearts.length - 1; i >= 0; i--) {
+        const heart = hearts[i];
+        heart.y -= heart.speedY;
+        heart.x += heart.speedX;
+        heart.rotation += heart.rotationSpeed;
+        ctx.save();
+        ctx.globalAlpha = heart.opacity;
+        ctx.fillStyle = heart.color;
+        ctx.font = `${heart.size}px serif`;
+        ctx.translate(heart.x, heart.y);
+        ctx.rotate(heart.rotation);
+        ctx.fillText(heart.character, 0, 0);
+        ctx.restore();
+        if (heart.y < -heart.size) {
+          hearts.splice(i, 1);
+        }
       }
-    }, parseFloat(heart.style.animationDuration) * 1000);
-  }
-
-  document.addEventListener('click', function(e) {
-    for (let i = 0; i < 8; i++) {
-      setTimeout(() => createHeart(e.clientX, e.clientY, true), i * 100);
+      requestAnimationFrame(animate);
     }
-  });
 
-  function generateBackgroundHearts() {
-    const count = 3 + Math.floor(Math.random() * 3); // 3–5 капель
-    for (let i = 0; i < count; i++) {
-      setTimeout(() => createHeart(), i * 200);
-    }
-    setTimeout(generateBackgroundHearts, 1500);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('a, button')) return;
+      for (let i = 0; i < 8; i++) {
+        createHeart(e.clientX, e.clientY, true);
+      }
+    });
+
+    setInterval(createHeart, 800);
+    animate();
   }
 
-  for (let i = 0; i < 15; i++) {
-    setTimeout(() => createHeart(), i * 150);
-  }
-
-  generateBackgroundHearts();
 
   const buttons = document.querySelectorAll('.add-bot-btn, .back-btn');
   buttons.forEach(btn => {
@@ -300,6 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => wave.remove(), 400);
     });
   });
+
 
   const copyButtons = document.querySelectorAll('.command-copy');
   copyButtons.forEach(button => {
@@ -317,29 +335,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+
   const languageSwitcher = document.querySelector('.language-switcher');
   const languageCurrent = document.querySelector('.language-current');
   const languageMenu = document.querySelector('.language-menu');
   const languageOptions = document.querySelectorAll('.language-option');
 
-  languageCurrent.addEventListener('click', () => {
-    languageMenu.classList.toggle('show');
-  });
-
-  languageOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const lang = option.getAttribute('data-lang');
-      setLanguage(lang);
-      languageMenu.classList.remove('show');
+  if(languageSwitcher) {
+    languageCurrent.addEventListener('click', () => {
+      languageMenu.classList.toggle('show');
     });
-  });
 
-  document.addEventListener('click', (e) => {
-    if (!languageSwitcher.contains(e.target)) {
-      languageMenu.classList.remove('show');
-    }
-  });
+    languageOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const lang = option.getAttribute('data-lang');
+        setLanguage(lang);
+        languageMenu.classList.remove('show');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!languageSwitcher.contains(e.target)) {
+        languageMenu.classList.remove('show');
+      }
+    });
+  }
+
 
   setLanguage('ru');
 });
-
